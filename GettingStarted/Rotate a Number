@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int num = sc.nextInt();
+		
+		int rt = sc.nextInt();
+		
+		int countDigNum = 0;
+		int n = num;
+		
+		while(n != 0){
+		    countDigNum++;
+		    n /= 10;
+		}
+		
+		if(rt < 0) rt += countDigNum;
+		
+		int rotNum = num % (int)Math.pow(10,rt);
+		int remNum = num / (int)Math.pow(10,rt);
+		
+		int finRotNumber = rotNum * (int)Math.pow(10,countDigNum - rt) + remNum;
+		
+		System.out.println(finRotNumber);
+	}
+}
